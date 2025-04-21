@@ -1,0 +1,14 @@
+<section
+  class="grid grid-cols-1 lg:grid-cols-2 items-start bg-gray-50 min-h-screen"
+>
+  <app-auth-aside
+    class="h-full hidden lg:block bg-[#F0F4FC] flex flex-col items-center justify-center rounded-r-[6.25rem] custom-shadow p-[5rem]"
+  ></app-auth-aside>
+
+  <div class="w-full flex flex-col items-center justify-center">
+    <app-auth-navbar
+      class="text-center mb-8 ml-auto flex flex-row-reverse justify-evenly m-[5rem]"
+    ></app-auth-navbar>
+    <router-outlet />
+  </div>
+</section>

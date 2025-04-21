@@ -1,0 +1,105 @@
+{
+  "name": "online-exam",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
+  "sourceRoot": "apps/online-exam/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "options": {
+        "outputPath": "dist/apps/online-exam",
+        "index": "apps/online-exam/src/index.html",
+        "browser": "apps/online-exam/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/online-exam/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "public"
+          }
+        ],
+        "styles": [
+          "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+          "node_modules/ngx-toastr/toastr.css",
+          "apps/online-exam/src/styles.scss"
+        ],
+        "scripts": [
+          "node_modules/flowbite/dist/flowbite.min.js",
+          "node_modules/apexcharts/dist/apexcharts.min.js"
+        ],
+        "server": "apps/online-exam/src/main.server.ts",
+        "outputMode": "server",
+        "ssr": {
+            "entry": "apps/online-exam/src/main.server.ts"
+          } 
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kB",
+              "maximumError": "1MB"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kB",
+              "maximumError": "8kB"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "online-exam:build:production"
+        },
+        "development": {
+          "buildTarget": "online-exam:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n"
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "fileReplacements": [
+          {
+            "replace": "./src/app/core/environment/environment.ts",
+            "with": "./src/app/core/environment/environment.prod.ts"
+          }
+        ],
+        "polyfills": ["zone.js", "zone.js/testing"],
+        "tsConfig": "apps/online-exam/tsconfig.spec.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/online-exam/public"
+          }
+        ],
+        "styles": ["apps/online-exam/src/styles.scss"],
+        "scripts": ["apps/online-exam/node_modules/chart.js/dist/chart.js"]
+      }
+    }
+  }
+}

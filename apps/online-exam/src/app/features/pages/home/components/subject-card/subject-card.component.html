@@ -1,0 +1,17 @@
+<div class="card rounded-lg overflow-hidden relative p-3" (click)="toExams()">
+  <div class="relative">
+    <img
+      src="{{ subject.icon }}"
+      class="w-full h-[18.2906rem] object-cover rounded-lg"
+      alt="{{ subject.name }}"
+    />
+    <div class="absolute inset-0 flex items-end justify-center py-8 px-3">
+      <div class="bg-[#1935CA66] p-3 backdrop-blur-md rounded-lg w-fit">
+        <p class="font-bold text-sm text-white">{{ subject.name }}</p>
+        <p class="text-gray-200 text-sm">
+          Voluptatem aut ut dignissimos blanditiis
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

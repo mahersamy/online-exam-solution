@@ -1,0 +1,9 @@
+<div class="flex justify-center mb-4 gap-2">
+  @for (_ of [].constructor(quizesLength()); track $index) {
+  <span
+    class="w-2 h-2 rounded-full"
+    [class.bg-blue-600]="$index === currentQuizNumber() - 1"
+    [class.bg-gray-300]="$index !== currentQuizNumber() - 1"
+  ></span>
+  }
+</div>

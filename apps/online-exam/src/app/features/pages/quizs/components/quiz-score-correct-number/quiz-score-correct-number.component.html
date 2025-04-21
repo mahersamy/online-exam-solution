@@ -1,0 +1,22 @@
+<div class="correct-section flex flex-col space-y-2">
+  <div class="flex justify-between items-center space-x-[2.125rem]">
+    <p class="text-[#02369C] font-medium text-xl">Correct</p>
+    <span
+      class="rounded-full border border-1 w-6 h-6 p-[12px] border-[#02369C] flex justify-center items-center"
+    >
+      <p>
+        {{ correctNum() }}
+      </p>
+    </span>
+  </div>
+  <div class="flex justify-between items-center space-x-[2.125rem]">
+    <p class="text-[#CC1010] font-medium text-xl">Incorrect</p>
+    <span
+      class="rounded-full border border-1 w-6 h-6 p-[12px] border-[#CC1010] flex justify-center items-center"
+    >
+      <p>
+        {{ wrongNum() }}
+      </p>
+    </span>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<app-custom-modal [visable]="isModalOpen()" (closed)="closeModal()">
+  <div body>
+    <p class="font-medium md:text-2xl mb-[1rem]">Instructions</p>
+    <ul class="space-y-[.5rem]">
+      <li class="text-[#535353]">Lorem ipsum dolor sit amet consectetur.</li>
+      <li class="text-[#535353]">Lorem ipsum dolor sit amet consectetur.</li>
+      <li class="text-[#535353]">Lorem ipsum dolor sit amet consectetur.</li>
+      <li class="text-[#535353]">Lorem ipsum dolor sit amet consectetur.</li>
+    </ul>
+  </div>
+  <button
+    (click)="startExam()"
+    actions
+    class="bg-primary w-full py-[.425rem] px-[9.625rem] md:py-[.875rem] md:px-[17.625rem] rounded-[1.5rem] text-white"
+  >
+    Start
+  </button>
+</app-custom-modal>
+
+@if(examId){
+<app-quiz-modal [examId]="examId" [visable]="showDialogExam()"></app-quiz-modal>
+
+} @if(loading==false){
+<div class="exams_container mt-0 md:mt-[2.5rem]">
+  @for (item of exams; track $index) {
+
+  <div
+    class="exam_item bg-white rounded-[1.25rem] flex flex-col mt-[1.5rem] first:mt-0"
+  >
+    <div class="flex justify-between py-[1rem] px-[1.5rem]">
+      <div class="flex flex-col">
+        <p class="font-normal mb-[.5rem]">{{ item.title }}</p>
+        <p class="text-xs">{{ item.numberOfQuestions }} Questions</p>
+      </div>
+      <div class="flex flex-col items-end">
+        <p class="mb-[.5rem]">{{ item.duration }} Minutes</p>
+        <button
+          class="bg-primary px-[1.5rem] py-[.25rem] rounded-[.625rem] text-white"
+          (click)="openModal(item._id)"
+        >
+          Start
+        </button>
+      </div>
+    </div>
+  </div>
+  } @empty { @if(!loading) {
+  <div class="flex flex-col justify-center items-center">
+    <img class="w-72" src="/images/empty.jpg" alt="empty exam" />
+    Not avaliable exam in this subject
+  </div>
+  } }
+</div>
+}@else {
+<div class="flex flex-col h-lvh w-full justify-center items-center">
+  <i class="fa fa-spin fa-spinner text-5xl text-primary"></i>
+</div>
+}

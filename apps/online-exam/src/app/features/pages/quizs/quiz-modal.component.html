@@ -1,0 +1,77 @@
+@if(quizes.length!==0){ @let currentQuiz = quizes[curentQuizNumber - 1];
+<app-custom-modal [visable]="isModalOpen()">
+  <div body>
+    <div class="flex justify-between items-center mb-4">
+      <span class="text-sm text-gray-600"
+        >Question {{ curentQuizNumber }} of {{ quizes.length }}</span
+      >
+      <!-- timer -->
+      <div class="flex items-center gap-2">
+        <img
+          class="w-[1.5rem] h-[1.875rem]"
+          src="/images/timer.png"
+          alt="image for timer"
+        />
+        <span class="text-sm font-semibold text-green-600 px-1 rounded">
+          @if (isModalOpen()) {
+          <app-custom-timer
+            [startTime]="currentQuiz.exam.duration"
+            (completed)="closeModal()"
+          >
+          </app-custom-timer>
+          }
+        </span>
+      </div>
+    </div>
+
+    <!-- stepper -->
+    <app-quiz-stepper
+      [currentQuizNumber]="curentQuizNumber"
+      [quizesLength]="quizes.length"
+    ></app-quiz-stepper>
+
+    <app-quiz-title [title]="currentQuiz.question"></app-quiz-title>
+
+    <div class="flex flex-col gap-[1rem] mb-6">
+      @for (answer of currentQuiz.answers; track $index) {
+      <label
+        class="flex items-center px-4 py-3 rounded-[.625rem] cursor-pointer transition"
+        [class]="{
+          'bg-[#CCD7EB]': selectedAnswer === answer.key,
+          'bg-[#EDEFF3]': selectedAnswer !== answer.key
+        }"
+      >
+        <input
+          type="radio"
+          [id]="answer.key"
+          name="list-radio"
+          [value]="answer.key"
+          [checked]="selectedAnswer === answer.key"
+          (change)="selectedAnswer = answer.key"
+          class="w-4 h-4 text-blue-600 accent-blue-600"
+        />
+        <span class="ml-3 text-xs md:text-xl">{{ answer.answer }}</span>
+      </label>
+      }
+    </div>
+  </div>
+
+  <app-quiz-button
+    actions
+    (prev)="previous()"
+    (next)="next(currentQuiz._id)"
+  ></app-quiz-button>
+</app-custom-modal>
+
+@if(myAnswers.length===quizes.length){
+<app-quiz-score
+  [quizes]="quizes"
+  [myAwnsers]="myAnswers"
+  (backBtn)="closeModal()"
+></app-quiz-score>
+}
+
+<!--   <app-quiz-correct-awnser [visable]="isResultModalOpen()" (close)="closeModal()" class="z-[100]"  [quizes]="quizes" [myAwnsers]="myAnswers"></app-quiz-correct-awnser>
+ -->
+
+}

@@ -1,0 +1,53 @@
+<app-custom-modal [visable]="visable()" class="max-h-72">
+  <div
+    body
+    class="grid grid-cols-1 md:grid-cols-2 gap-[1rem] overflow-y-auto max-h-[30rem] max-w-[25rem] md:max-w-[50rem]"
+  >
+    @for (quiz of quizs(); track quiz._id) { @for (correctAnswer of
+    wrongAnswerArray(); track $index) { @if(correctAnswer.questionId ==
+    quiz._id) {
+    <div
+      class="card px-[8px] py-[16px] rounded-[.625rem] space-y-[1rem] border border-[#2A292940]"
+    >
+      <p class="sm:text-xl md:text-2xl font-semibold">{{ quiz.question }}</p>
+      <form>
+        <div class="flex flex-col gap-[1rem] mb-6">
+          @for (answer of quiz.answers; track $index) {
+          <label
+            class="flex items-center px-4 py-3 rounded-[.625rem] cursor-pointer transition overflow-x-auto"
+            [class]="{
+                                    'bg-[#EDEFF3]':correctAnswer.correct !== answer.key && correctAnswer.myAnswer !== answer.key,
+                                    'bg-[#CAF9CC]':correctAnswer.correct == answer.key,
+                                    'border border-1 border-[#11CE19]':correctAnswer.myAnswer == answer.key,
+                                    'bg-[#F8D2D2]':correctAnswer.myAnswer == answer.key,
+                                    'border border-1 border-[#CC1010]':correctAnswer.myAnswer == answer.key,
+
+                                  }"
+          >
+            <input
+              readonly
+              disabled
+              type="radio"
+              [id]="answer.key"
+              name="list-radio"
+              [value]="answer.key"
+              [checked]="correctAnswer.myAnswer === answer.key"
+              class="w-4 h-4 text-blue-600 accent-blue-600"
+            />
+            <span class="ml-3 text-xs md:text-base">{{ answer.answer }}</span>
+          </label>
+          }
+        </div>
+      </form>
+    </div>
+    } } }
+    <div class="flex justify-end items-end">
+      <button
+        (click)="closeModalHandler()"
+        class="bg-primary rounded-lg text-white w-full mx-5 py-[8px] border border-0"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</app-custom-modal>

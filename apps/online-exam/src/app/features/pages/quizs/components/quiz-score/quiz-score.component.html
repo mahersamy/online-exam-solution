@@ -1,0 +1,39 @@
+@let percentage=(((this.quizes().length - this.wrongAnswerArray.length) /
+this.quizes().length) * 100).toFixed(2);
+<app-custom-modal [visable]="visable()">
+  <div head>
+    <p class="text-2xl font-medium">Your score</p>
+  </div>
+  <div body class="flex">
+    <div class="flex justify-between items-center space-x-[5rem] mt-4 mx-auto">
+      <div class="chart-container w-[9.375rem] h-[9.375rem] relative">
+        <canvas #scoreChart></canvas>
+        <span class="rounded-full w-6 h-6 p-[20px] chart-center"
+          >{{ percentage }}%</span
+        >
+      </div>
+
+      <app-quiz-score-correct-number
+        [correctNum]="quizes().length - wrongAnswerArray.length"
+        [wrongNum]="wrongAnswerArray.length"
+      ></app-quiz-score-correct-number>
+    </div>
+  </div>
+
+  <div actions>
+    <app-quiz-button
+      [rightButtonLabel]="'Show results'"
+      (next)="showResultHandler()"
+      (prev)="backToExams()"
+    ></app-quiz-button>
+  </div>
+</app-custom-modal>
+
+<app-quiz-correct-awnser
+  [visable]="correctAnswerDialog()"
+  (close)="backToExams()"
+  class="z-[100]"
+  [quizs]="quizes()"
+  [wrongAnswerArray]="wrongAnswerArray"
+>
+</app-quiz-correct-awnser>

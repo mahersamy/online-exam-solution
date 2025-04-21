@@ -1,0 +1,14 @@
+<div actions class="flex justify-between items-end space-x-[3rem]">
+  <button
+    (click)="previous()"
+    class="text-primary border border-primary py-[0.525rem] px-[3.25rem] lg:py-[1.125rem] lg:px-[7.5rem] rounded-full"
+  >
+    {{ leftButtonLabel() }}
+  </button>
+  <button
+    (click)="forword()"
+    class="bg-primary border border-primary text-white py-[0.525rem] px-[3.25rem] lg:py-[1.125rem] lg:px-[7.5rem] rounded-full"
+  >
+    {{ rightButtonLabel() }}
+  </button>
+</div>
