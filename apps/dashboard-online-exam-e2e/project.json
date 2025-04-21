@@ -1,0 +1,9 @@
+{
+  "name": "dashboard-online-exam-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/dashboard-online-exam-e2e/src",
+  "implicitDependencies": ["dashboard-online-exam"],
+  "// targets": "to see all targets run: nx show project dashboard-online-exam-e2e --web",
+  "targets": {}
+}
