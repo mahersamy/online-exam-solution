@@ -68,6 +68,8 @@ export class RegisterComponent {
   }
 
   submit(fn: () => void) {
+    // console.log(this.registerForm.controls['phone'].errors!['pattern'].requiredPattern)
+    // console.log(this.registerForm.controls['phone'].errors!['pattern'].requiredPattern=="/^01[0125][0-9]{8}$/")
     if (this.registerForm.invalid) {
       this.registerForm.markAllAsTouched();
     } else {
