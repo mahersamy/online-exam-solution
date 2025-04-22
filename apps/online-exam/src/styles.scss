@@ -1,5 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* You can add global styles to this file, and also import other style files */
-@import 'tailwindcss';
+// @import 'tailwindcss';
 @import 'flowbite/src/themes/default';
 
 $primary-color: #4461f2;
