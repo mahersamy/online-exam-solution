@@ -4,3 +4,21 @@
 
 /* You can add global styles to this file, and also import other style files */
 // @use 'tailwindcss';
+@import 'flowbite/src/themes/default';
+
+$primary-color: #4461f2;
+
+.custom-shadow {
+  box-shadow: 0 5px 100px 0 #0000001a;
+}
+
+.input-custom-shadow {
+  box-shadow: 0 10px 20px 0 #4461f20d;
+}
+
+.bg-primary {
+  background-color: $primary-color;
+}
+.text-primary {
+  color: $primary-color;
+}

@@ -22,8 +22,15 @@
             "input": "apps/dashboard-online-exam/public"
           }
         ],
-        "styles": ["apps/dashboard-online-exam/src/styles.scss"],
-        "scripts": []
+        "styles": [
+          "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+          "node_modules/ngx-toastr/toastr.css",
+          "apps/online-exam/src/styles.scss"
+        ],
+        "scripts": [
+           "node_modules/flowbite/dist/flowbite.min.js",
+           "node_modules/apexcharts/dist/apexcharts.min.js"
+        ]
       },
       "configurations": {
         "production": {

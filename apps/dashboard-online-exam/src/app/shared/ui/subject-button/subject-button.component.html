@@ -1,0 +1,20 @@
+@if(responsive()){
+<button
+  class="text-primary text-2xl font-medium pt-4 px-3 hidden md:block"
+  (click)="handelClick()"
+>
+  @if(loading()){
+  <i class="fa fa-spin fa-spinner"></i>
+  }@else{ @if(viewAll()){ View All }@else{ Less All } }
+</button>
+}@else {
+<button
+  class="text-primary text-2xl font-medium pt-4 px-3 block md:hidden pt-[1rem] pb-2 mr-auto"
+  (click)="handelClick()"
+>
+  @if(loading()){
+  <i class="fa fa-spin fa-spinner"></i>
+  }@else{ @if(viewAll()){ View All }@else{ Less All } }
+</button>
+
+}
