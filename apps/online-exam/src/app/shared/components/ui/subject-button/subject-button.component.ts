@@ -5,15 +5,18 @@ import { BehaviorSubject } from 'rxjs';
   selector: 'app-subject-button',
   imports: [],
   templateUrl: './subject-button.component.html',
-  styleUrl: './subject-button.component.scss',
+  styleUrl: './subject-button.component.scss'
 })
 export class SubjectButtonComponent {
-  loading = input<boolean>();
-  viewAll = input<boolean>();
-  responsive = input<boolean>();
+  loading=input<boolean>()
+  viewAll=input<boolean>()
+  responsive=input<boolean>()
   @Output() functionCalled = new EventEmitter<void>();
 
-  handelClick(): void {
-    this.functionCalled.emit();
+
+
+  handelClick():void{
+    this.functionCalled.emit()
   }
+
 }

@@ -8,8 +8,9 @@ describe('CustomTimerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CustomTimerComponent],
-    }).compileComponents();
+      imports: [CustomTimerComponent]
+    })
+    .compileComponents();
 
     fixture = TestBed.createComponent(CustomTimerComponent);
     component = fixture.componentInstance;

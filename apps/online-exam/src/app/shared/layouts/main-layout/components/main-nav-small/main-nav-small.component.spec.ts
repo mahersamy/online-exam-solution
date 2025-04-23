@@ -8,8 +8,9 @@ describe('MainNavSmallComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MainNavSmallComponent],
-    }).compileComponents();
+      imports: [MainNavSmallComponent]
+    })
+    .compileComponents();
 
     fixture = TestBed.createComponent(MainNavSmallComponent);
     component = fixture.componentInstance;

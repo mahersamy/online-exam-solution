@@ -4,12 +4,13 @@ import { Subject } from 'rxjs';
 import { SubjectResponse } from '../../shared/interfaces/subjects/subject-response';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class SubjectApiAdaptorService implements Adaptor {
+export class SubjectApiAdaptorService implements Adaptor{
+
   adapt(data: any): SubjectResponse[] {
     if (Array.isArray(data)) {
-      return data.map((item) => this.transform(item));
+      return data.map(item => this.transform(item));
     }
     return [this.transform(data)];
   }
@@ -19,7 +20,9 @@ export class SubjectApiAdaptorService implements Adaptor {
       _id: item._id,
       name: item.name,
       icon: item.icon,
-      createdAt: item.createdAt,
+      createdAt: item.createdAt
     };
   }
+
+  
 }
