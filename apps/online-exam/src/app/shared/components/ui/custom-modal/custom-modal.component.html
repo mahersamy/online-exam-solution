@@ -1,15 +1,11 @@
 @if(visable()){
-<div
-  class="fixed bg-[#00000080] w-full h-full z-50 top-0 left-0 right-0 flex justify-center items-center"
-  (click)="close($event)"
-  id="modal-outline"
->
-  <div class="modal-box bg-white p-[1.5rem] rounded-[1.25rem]">
-    <ng-content select="[head]"></ng-content>
-    <ng-content select="[body]"></ng-content>
-    <div class="modal-actions mt-[3rem]">
-      <ng-content select="[actions]"></ng-content>
+    <div class="fixed bg-[#00000080] w-full h-full z-50 top-0 left-0 right-0 flex justify-center items-center " (click)="close($event)" id="modal-outline">
+        <div class="modal-box bg-white p-[1.5rem] rounded-[1.25rem]">
+        <ng-content select="[head]"></ng-content>
+        <ng-content select="[body]"></ng-content>
+          <div class="modal-actions mt-[3rem]">
+            <ng-content select="[actions]"></ng-content>
+          </div>
+        </div>
     </div>
-  </div>
-</div>
 }

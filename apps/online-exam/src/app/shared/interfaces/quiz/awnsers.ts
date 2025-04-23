@@ -1,4 +1,4 @@
 export interface Awnsers {
-  questionId: string;
-  correct: string;
+    questionId:string;
+    correct:string;
 }

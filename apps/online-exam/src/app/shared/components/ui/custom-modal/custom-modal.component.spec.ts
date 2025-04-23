@@ -8,8 +8,9 @@ describe('CustomModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CustomModalComponent],
-    }).compileComponents();
+      imports: [CustomModalComponent]
+    })
+    .compileComponents();
 
     fixture = TestBed.createComponent(CustomModalComponent);
     component = fixture.componentInstance;
