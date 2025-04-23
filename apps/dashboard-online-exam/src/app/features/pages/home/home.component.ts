@@ -1,6 +1,8 @@
-import { Component,} from '@angular/core';
+import { Component, inject,} from '@angular/core';
 
 import { SubjectButtonComponent } from '../../../shared/ui/subject-button/subject-button.component';
+
+import {SubjectApiService} from 'subjects';
 
 @Component({
   selector: 'app-home',
@@ -9,5 +11,8 @@ import { SubjectButtonComponent } from '../../../shared/ui/subject-button/subjec
   styleUrl: './home.component.scss',
 })
 export class HomeComponent  {
+  private readonly _subjectApiService=inject(SubjectApiService);
+
+
  
 }

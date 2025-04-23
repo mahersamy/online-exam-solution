@@ -1,7 +1,7 @@
 <app-custom-modal [visable]="visable()" class="max-h-72">
   <div
     body
-    class="grid grid-cols-1 md:grid-cols-2 gap-[1rem] overflow-y-auto max-h-[30rem] max-w-[25rem] md:max-w-[50rem]"
+    class="grid grid-cols-1 md:grid-cols-2 gap-[1rem] overflow-y-auto max-h-[30rem] max-w-[35rem] md:max-w-[50rem]"
   >
     @for (quiz of quizs(); track quiz._id) { @for (correctAnswer of
     wrongAnswerArray(); track $index) { @if(correctAnswer.questionId ==
@@ -9,7 +9,7 @@
     <div
       class="card px-[8px] py-[16px] rounded-[.625rem] space-y-[1rem] border border-[#2A292940]"
     >
-      <p class="sm:text-xl md:text-2xl font-semibold">{{ quiz.question }}</p>
+      <p class="sm:text-xl md:text-1xl font-semibold">{{ quiz.question }}</p>
       <form>
         <div class="flex flex-col gap-[1rem] mb-6">
           @for (answer of quiz.answers; track $index) {

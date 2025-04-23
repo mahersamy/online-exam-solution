@@ -2,7 +2,8 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "auth-api": ["./dist/auth-api"]
+      "auth-api": ["./dist/auth-api"],
+      "subjects": ["libs/subjects/src/index.ts"]
     },
     "outDir": "./dist/out-tsc",
     "strict": true,
