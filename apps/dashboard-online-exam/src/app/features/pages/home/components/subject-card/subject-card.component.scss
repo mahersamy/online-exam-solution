@@ -1,0 +1,24 @@
+@layer{
+    .close-button{
+        position: absolute !important;
+        top: -100px;
+        left: 25px;
+        transition: top 0.3s ease, opacity 0.3s ease;
+        z-index: 50;
+    }
+    
+   .subject-card:hover .close-button{
+        top: 25px;
+    } 
+    .update-button{
+        position: absolute !important;
+        top: -100px;
+        right: 25px;
+        transition: top 0.3s ease, opacity 0.3s ease;
+        z-index: 50;
+    }
+    
+   .subject-card:hover .update-button{
+        top: 25px;
+    } 
+}

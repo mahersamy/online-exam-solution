@@ -1,1 +1,30 @@
-<h1>Home Works</h1>
+<section
+  class="subject_container bg-white rounded-[1.25rem] flex flex-col mt-0 md:mt-[2.5rem]"
+>
+  <div class="flex justify-between items-center">
+    <p class="text-primary text-2xl font-medium py-8 px-3">Quizes</p>
+    <app-subject-button
+      (functionCalled)="getAllSubjects()"
+      [loading]="loading"
+      [viewAll]="viewAll"
+      [responsive]="true"
+    ></app-subject-button>
+  </div>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+    @for (item of subjects; track $index) {
+    <app-subject-card (onChange)="getAllSubjects()" [subject]="item"></app-subject-card>
+    }@empty { @if(!loading){
+    <div class="flex flex-col justify-center items-center">
+      <img class="w-72" src="/images/empty.jpg" alt="empty exam" />
+      Not avaliable subject
+    </div>
+    } }
+  </div>
+
+  <app-subject-button
+    (functionCalled)="getAllSubjects()"
+    [loading]="loading"
+    [viewAll]="viewAll"
+    [responsive]="false"
+  ></app-subject-button>
+</section>
