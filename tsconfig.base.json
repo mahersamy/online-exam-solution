@@ -3,6 +3,7 @@
   "compilerOptions": {
     "paths": {
       "auth-api": ["./dist/auth-api"],
+      "exams": ["libs/exams/src/index.ts"],
       "subjects": ["libs/subjects/src/index.ts"]
     },
     "outDir": "./dist/out-tsc",
