@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { MainNavComponent } from './components/main-nav/main-nav.component';
-import { MainAsideComponent } from './components/main-aside/main-aside.component';
 import { RouterOutlet } from '@angular/router';
 import { MainNavSmallComponent } from './components/main-nav-small/main-nav-small.component';
 
@@ -8,7 +7,6 @@ import { MainNavSmallComponent } from './components/main-nav-small/main-nav-smal
   selector: 'app-main-layout',
   imports: [
     MainNavComponent,
-    MainAsideComponent,
     RouterOutlet,
     MainNavSmallComponent,
   ],

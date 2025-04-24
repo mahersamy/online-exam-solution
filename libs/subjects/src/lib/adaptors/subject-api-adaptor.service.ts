@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Adaptor } from '../interfaces/adaptor';
 import { Subject } from 'rxjs';
-import { SubjectResponse } from '../../shared/interfaces/subjects/subject-response';
+import { Adaptor } from '../interfaces/adaptor';
+import { SubjectResponse } from '../interfaces/subject-response';
 
 @Injectable({
   providedIn: 'root'

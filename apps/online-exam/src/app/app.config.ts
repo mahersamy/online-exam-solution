@@ -18,6 +18,7 @@ import { environment } from './core/environment/environment';
 import { tokenReducer } from './core/store/auth.reducer';
 import { tokenInterceptor } from './core/interceptors/token.interceptor';
 import { API_BASE_URL } from 'auth-api';
+import { API_BASE_URL_SUBJECTS } from 'subjects';
 
 
 
@@ -34,6 +35,10 @@ export const appConfig: ApplicationConfig = {
     }),
     {
       provide: API_BASE_URL,
+      useValue: environment.baseUrl,
+    },
+    {
+      provide: API_BASE_URL_SUBJECTS,
       useValue: environment.baseUrl,
     },
   ],

@@ -1,7 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { SubjectCardComponent } from './components/subject-card/subject-card.component';
-import { SubjectService } from '../../../shared/services/subject/subject.service';
-import { SubjectResponse } from '../../../shared/interfaces/subjects/subject-response';
+import { SubjectApiService, SubjectResponse } from 'subjects';
 import { ToastrService } from 'ngx-toastr';
 import { SubjectButtonComponent } from '../../../shared/components/ui/subject-button/subject-button.component';
 import { Subject, takeUntil } from 'rxjs';
@@ -13,7 +12,7 @@ import { Subject, takeUntil } from 'rxjs';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
-  private readonly _subjectService = inject(SubjectService);
+  private readonly _subjectApiService = inject(SubjectApiService);
   private readonly _toastrService = inject(ToastrService);
   private readonly destroy$ = new Subject<void>();
 
@@ -28,7 +27,7 @@ export class HomeComponent implements OnInit {
   getAllSubjects() {
     this.viewAll = !this.viewAll;
     this.loading = true;
-    this._subjectService
+    this._subjectApiService
       .getAllSubjects(this.viewAll)
       .pipe(takeUntil(this.destroy$))
       .subscribe({
