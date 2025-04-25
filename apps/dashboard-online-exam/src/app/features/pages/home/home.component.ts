@@ -6,10 +6,11 @@ import {SubjectApiService, SubjectResponse} from 'subjects';
 import { ToastrService } from 'ngx-toastr';
 import { Subject, takeUntil } from 'rxjs';
 import { SubjectCardComponent } from "./components/subject-card/subject-card.component";
+import { SubjectModalComponent } from "./components/subject-modal/subject-modal.component";
 
 @Component({
   selector: 'app-home',
-  imports: [SubjectButtonComponent, SubjectCardComponent],
+  imports: [SubjectButtonComponent, SubjectCardComponent, SubjectModalComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -17,6 +18,20 @@ export class HomeComponent  {
   private readonly _subjectApiService=inject(SubjectApiService);
   private readonly _toastrService = inject(ToastrService);
   private readonly destroy$ = new Subject<void>();
+
+  addDialog:boolean=false;
+
+
+  closeAddDialog(){
+    this.addDialog=false;
+    this.getAllSubjects();
+  }
+
+
+  showAddDialog(){
+    this.addDialog=true;
+    
+  }
 
   subjects!: Array<SubjectResponse>;
   viewAll: boolean = false;

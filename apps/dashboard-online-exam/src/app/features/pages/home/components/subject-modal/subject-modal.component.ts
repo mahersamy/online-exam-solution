@@ -58,12 +58,13 @@ export class SubjectModalComponent implements OnInit {
     } else if (this.fileSelected == null) {
       this._toastrService.error('plese set valid image');
     } else {
-      if(this.subjectId==undefined){
+      if(this.subjectId()==undefined){
         this.addSubject()
+        
       }else{
         this.updateSubject()
       }
-      this.closeHandler();
+      
     }
   }
 
@@ -76,6 +77,7 @@ export class SubjectModalComponent implements OnInit {
       })
       .pipe(takeUntil(this.destroy$))
       .subscribe({
+        next:()=>this.closeHandler(),
         error: (err) => {
           this._toastrService.error(err.error);
         },
@@ -94,6 +96,7 @@ export class SubjectModalComponent implements OnInit {
       })
       .pipe(takeUntil(this.destroy$))
       .subscribe({
+        next:()=>this.closeHandler(),
         error: (err) => {
           this._toastrService.error(err.error);
         },

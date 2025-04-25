@@ -1,17 +1,26 @@
-
-
-
+<app-subject-modal [isModalOpen]="addDialog" (close)="closeAddDialog() "></app-subject-modal>
 <section
-  class="subject_container bg-white rounded-[1.25rem] flex flex-col mt-0 md:mt-[2.5rem]"
+  class="subject_container bg-white rounded-[1.25rem] flex flex-col mt-[2.5rem]"
 >
   <div class="flex justify-between items-center">
     <p class="text-primary text-2xl font-medium py-8 px-3">Quizes</p>
-    <app-subject-button
+    <div class="flex justify-center items-center gap-10">
+      <app-subject-button
       (functionCalled)="getAllSubjects()"
       [loading]="loading"
       [viewAll]="viewAll"
       [responsive]="true"
     ></app-subject-button>
+
+      <button
+      (click)="showAddDialog()"
+      type="submit"
+      class="text-white bg-primary rounded-[1.25rem] py-[1rem] px-8 md:text-base"
+    >
+      Add Subject
+    </button>
+    </div>
+  
   </div>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
     @for (item of subjects; track $index) {
