@@ -51,8 +51,11 @@ export class SubjectApiService implements SubjectsApi {
   }
   
   updateSubject(id:string,data:SubjectData): Observable<SubjectMessage> {
+    const formData = new FormData();
+    formData.append('name', data.name);
+    formData.append('icon', data.icon);
     let finalUrl: string = this._Api_BASE_SUBJECTS + EndPoints.SUBJECTS+'/'+id;
-    return this._httpClient.put(finalUrl,data).pipe(map(
+    return this._httpClient.put(finalUrl,formData).pipe(map(
       (res)=>this._subjectApiMessageAdaptorService.adapt(res),
       catchError((error) => {
         return throwError(() => error);
@@ -61,8 +64,11 @@ export class SubjectApiService implements SubjectsApi {
   }
 
   addSubject(data:SubjectData): Observable<SubjectMessage> {
+    const formData = new FormData();
+    formData.append('name', data.name);
+    formData.append('icon', data.icon);
     let finalUrl: string = this._Api_BASE_SUBJECTS + EndPoints.SUBJECTS;
-    return this._httpClient.post(finalUrl,data).pipe(map(
+    return this._httpClient.post(finalUrl,formData).pipe(map(
       (res)=>this._subjectApiMessageAdaptorService.adapt(res),
       catchError((error) => {
         return throwError(() => error);

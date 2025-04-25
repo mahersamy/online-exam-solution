@@ -1,7 +1,7 @@
-
+<app-subject-modal [isModalOpen]="UpdateDialog" (close)="closeUpdateDialog()" [subjectId]="subject._id"></app-subject-modal>
 
 <div class="subject-card relative overflow-hidden">
-  <button class="close-button p-4 text-white text-2xl rounded-full bg-primary"><i class="fa-solid fa-wrench"></i></button>
+  <button (click)="showUpdateDialog()" class="close-button p-4 text-white text-2xl rounded-full bg-primary"><i class="fa-solid fa-wrench"></i></button>
   <button (click)="deleteSubject()" class="update-button p-4 text-red-400 text-2xl rounded-full bg-primary"><i class="fa-solid fa-trash"></i></button>
   <div class="card rounded-lg overflow-hidden relative p-3" (click)="toExams()">
     <div class="relative">

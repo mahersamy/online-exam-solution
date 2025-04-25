@@ -1,12 +1,14 @@
 import { Component, inject, Input, output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Subject, takeUntil } from 'rxjs';
+import { single, Subject, takeUntil } from 'rxjs';
 import { SubjectApiService, SubjectResponse } from 'subjects';
+import { CustomModalComponent } from "../../../../../shared/ui/custom-modal/custom-modal.component";
+import { SubjectModalComponent } from "../subject-modal/subject-modal.component";
 
 @Component({
   selector: 'app-subject-card',
-  imports: [],
+  imports: [CustomModalComponent, SubjectModalComponent],
   templateUrl: './subject-card.component.html',
   styleUrl: './subject-card.component.scss',
 })
@@ -20,9 +22,24 @@ export class SubjectCardComponent {
 
   onChange=output();
 
+  UpdateDialog: boolean = false;
+
+  closeUpdateDialog(){
+    this.UpdateDialog=false;
+    this.onChangeHandler()
+  }
+
+  showUpdateDialog(){
+    this.UpdateDialog=true;
+  }
+
 
   toExams() {
     this._router.navigate(['home/exams/', this.subject._id]);
+  }
+
+  onChangeHandler(){
+    this.onChange.emit()
   }
 
 
@@ -45,9 +62,7 @@ export class SubjectCardComponent {
 
   }
 
-  onChangeHandler(){
-    this.onChange.emit()
-  }
+ 
 
 
 }
