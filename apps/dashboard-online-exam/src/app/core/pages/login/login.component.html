@@ -7,8 +7,7 @@
   >
     <!-- Email Field -->
     <div>
-        @let
-        emailValid=loginForm.get("email")?.errors&&loginForm.get("email")?.touched;
+        @let emailValid=loginForm.get("email")?.errors&&loginForm.get("email")?.touched;
         <input
         formControlName="email"
         type="email"
