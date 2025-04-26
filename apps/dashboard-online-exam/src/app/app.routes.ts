@@ -1,8 +1,8 @@
-import { authGuard } from './../../../online-exam/src/app/core/guards/auth.guard';
-import { autoLoginGuard } from './../../../online-exam/src/app/core/guards/auto-login.guard';
 import { Route } from '@angular/router';
 import { AuthLayoutComponent } from './core/layouts/auth-layout/auth-layout.component';
 import { MainLayoutComponent } from './shared/layouts/main-layout/main-layout.component';
+import { autoLoginGuard } from './core/guards/auto-login.guard';
+import { authGuard } from './core/guards/auth.guard';
 
 
 export const appRoutes: Route[] = [
